@@ -42,7 +42,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 function Navbar() {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked } =
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } =
     useStateContext();
 
   return (
@@ -78,7 +78,7 @@ function Navbar() {
           <div
             className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
             onClick={() => handleClick("userProfile")}>
-            <img src={avatar} className="rounded-full w-8 h-8" />
+            <img src={avatar} className="rounded-full w-8 h-8" alt="Avatar" />
             <p>
               <span className="text-gray-400">Hi, </span>{" "}
               <span className="text-gray-400 font-bold ml-1 text-14">

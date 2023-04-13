@@ -13,9 +13,19 @@ export function ContextProvider({ children }) {
   const [activeMenu, setActiveMenu] = React.useState(true);
   const [isClicked, setIsClicked] = React.useState(initialState);
 
+  function handleClick(clicked) {
+    setIsClicked({ ...initialState, [clicked]: true });
+  }
+
   return (
     <StateConext.Provider
-      value={{ activeMenu, setActiveMenu, isClicked, setIsClicked }}>
+      value={{
+        activeMenu,
+        setActiveMenu,
+        isClicked,
+        setIsClicked,
+        handleClick,
+      }}>
       {children}
     </StateConext.Provider>
   );
