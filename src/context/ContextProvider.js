@@ -11,9 +11,11 @@ const initialState = {
 
 export function ContextProvider({ children }) {
   const [activeMenu, setActiveMenu] = React.useState(true);
+  const [isClicked, setIsClicked] = React.useState(initialState);
 
   return (
-    <StateConext.Provider value={{ activeMenu, setActiveMenu }}>
+    <StateConext.Provider
+      value={{ activeMenu, setActiveMenu, isClicked, setIsClicked }}>
       {children}
     </StateConext.Provider>
   );
