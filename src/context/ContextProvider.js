@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 const StateConext = React.createContext();
 
@@ -12,6 +13,7 @@ const initialState = {
 export function ContextProvider({ children }) {
   const [activeMenu, setActiveMenu] = React.useState(true);
   const [isClicked, setIsClicked] = React.useState(initialState);
+  const [screenSize, setScreenSize] = React.useState(undefined);
 
   function handleClick(clicked) {
     setIsClicked({ ...initialState, [clicked]: true });
@@ -25,6 +27,8 @@ export function ContextProvider({ children }) {
         isClicked,
         setIsClicked,
         handleClick,
+        screenSize,
+        setScreenSize,
       }}>
       {children}
     </StateConext.Provider>
