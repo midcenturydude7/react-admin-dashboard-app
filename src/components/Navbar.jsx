@@ -10,21 +10,6 @@ import avatar from "../data/avatar.jpg";
 import { Cart, Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../context/ContextProvider";
 
-function handleClick(name) {
-  switch (name) {
-    case "cart":
-      return <Cart />;
-    case "chat":
-      return <Chat />;
-    case "notification":
-      return <Notification />;
-    case "user":
-      return <UserProfile />;
-    default:
-      return null;
-  }
-}
-
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">
     <button
