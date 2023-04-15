@@ -13,12 +13,7 @@ import {
   Edit,
   Inject,
 } from "@syncfusion/ej2-react-grids";
-import {
-  orderData,
-  contextMenuItems,
-  ordersGrid,
-  ordersData,
-} from "../data/dummy";
+import { contextMenuItems, ordersGrid, ordersData } from "../data/dummy";
 import { Header } from "../components";
 
 function Orders() {
@@ -29,7 +24,10 @@ function Orders() {
         id="gridcomp"
         dataSource={ordersData}
         allowPaging
-        allowSorting>
+        allowSorting
+        allowExcelExport
+        allowPdfExport
+        contextMenuItems={contextMenuItems}>
         <ColumnsDirective>
           {ordersGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
