@@ -15,7 +15,7 @@ function Kanban() {
         id="kanban"
         dataSource={kanbanData}
         cardSettings={{ contentField: "Summary", headerField: "Id" }}
-        keyField="STATUS">
+        keyField="Status">
         <ColumnsDirective>
           {kanbanGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
