@@ -14,6 +14,25 @@ export function ContextProvider({ children }) {
   const [activeMenu, setActiveMenu] = React.useState(true);
   const [isClicked, setIsClicked] = React.useState(initialState);
   const [screenSize, setScreenSize] = React.useState(undefined);
+  const [currentColor, setCurrentColor] = React.useState("#03C9D7");
+  const [currentMode, setCurrentMode] = React.useState("Light");
+  const [themeSettings, setThemeSettings] = React.useState(false);
+
+  function setMode(e) {
+    setCurrentMode(e.target.value);
+
+    localStorage.setItem("themeMode", e.target.value);
+
+    setThemeSettings(false);
+  }
+
+  function setColor(color) {
+    setCurrentColor(color);
+
+    localStorage.setItem("colorMode", color);
+
+    setThemeSettings(false);
+  }
 
   function handleClick(clicked) {
     setIsClicked({ ...initialState, [clicked]: true });
@@ -29,6 +48,12 @@ export function ContextProvider({ children }) {
         handleClick,
         screenSize,
         setScreenSize,
+        currentColor,
+        currentMode,
+        themeSettings,
+        setThemeSettings,
+        setMode,
+        setColor,
       }}>
       {children}
     </StateConext.Provider>
